@@ -6,15 +6,22 @@ import (
 	"gopkg.in/Clever/kayvee-go.v0"
 	"log"
 	"net"
+	"os"
 	"strconv"
 )
 
 // This script polls gearman and outputs metrics to syslog in
 // a standard format for later parsing
 func main() {
-	hostPtr := flag.String("host", "yourgearmanhost.example.com", "target gearman host")
+	hostPtr := flag.String("host", "", "target gearman host")
 	portPtr := flag.Int("port", 4730, "target gearman port")
 	flag.Parse()
+
+	if *hostPtr == "" {
+		log.Println("must specify host")
+		flag.PrintDefaults()
+		os.Exit(1)
+	}
 
 	// connect to gearman
 	c, err := net.Dial("tcp", *hostPtr+":"+strconv.Itoa(*portPtr))

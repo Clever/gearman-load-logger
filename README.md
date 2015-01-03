@@ -21,8 +21,14 @@ If there are no workers, a default value of 99 is output as the `worker_load`.
 
 ## Running
 
-TODO
+```bash
+./gearman-load-logger --host yourgearmanhost.example.com --port 4730
+```
+
+Note that you can usually rely on the default value of 4730 for the gearman port.
 
 ## Dependencies
 
-`gearman-load-logger` uses [gearadmin](https://github.com/Clever/gearadmin) and [kayvee](https://github.com/Clever/kayvee), and requires `golang` to be installed. TODO: version
+`gearman-load-logger` uses [gearadmin](https://github.com/Clever/gearadmin) and [kayvee](https://github.com/Clever/kayvee), and requires `golang` to be installed (tested with version `1.3`).
+
+However, it is easiest to just download from the [releases page](https://github.com/Clever/gearman-load-logger/releases).
