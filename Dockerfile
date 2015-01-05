@@ -1,11 +1,9 @@
 FROM golang:1.3
 RUN apt-get update
-RUN apt-get install -y wget build-essential
+RUN apt-get install -y curl build-essential
 
 # Gearcmd
-RUN wget https://github.com/Clever/gearcmd/releases/download/v0.3.1/gearcmd-v0.3.1-linux-amd64.tar.gz
-RUN tar -xvf gearcmd-v0.3.1-linux-amd64.tar.gz
-RUN cp gearcmd-v0.3.1-linux-amd64/gearcmd /usr/local/bin/
+RUN curl -L https://github.com/Clever/gearcmd/releases/download/v0.3.1/gearcmd-v0.3.1-linux-amd64.tar.gz | tar xz -C /usr/local/bin --strip-components 1
 
 # Set up worker
 RUN mkdir -p /go/src/github.com/Clever/gearman-load-logger
