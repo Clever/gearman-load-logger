@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"github.com/Clever/gearadmin"
-	"gopkg.in/Clever/kayvee-go.v0"
+	"gopkg.in/Clever/kayvee-go.v1"
 	"log"
 	"net"
 	"os"
