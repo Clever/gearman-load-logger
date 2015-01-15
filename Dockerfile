@@ -1,4 +1,4 @@
-FROM golang:1.3
+FROM golang:1.4
 RUN apt-get update
 RUN apt-get install -y curl build-essential
 RUN go get github.com/tools/godep
