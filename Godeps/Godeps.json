@@ -1,0 +1,15 @@
+{
+	"ImportPath": "github.com/Clever/gearman-load-logger",
+	"GoVersion": "go1.4",
+	"Deps": [
+		{
+			"ImportPath": "github.com/Clever/gearadmin",
+			"Rev": "24bb3bffb82cc94a5c2df192d483667130d55942"
+		},
+		{
+			"ImportPath": "gopkg.in/Clever/kayvee-go.v1",
+			"Comment": "v1.0.0",
+			"Rev": "40a077507daf3f7d56d15295447a3189b34491fe"
+		}
+	]
+}
