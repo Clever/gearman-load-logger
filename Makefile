@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 PKG := github.com/Clever/gearman-load-logger
 
-.PHONY: $(PKGS)
+.PHONY: test $(PKG)
 
 test: $(PKG)
 
