@@ -1,4 +1,4 @@
-image: go1.3
+image: library/go:1.4
 notify:
   email:
     recipients:
