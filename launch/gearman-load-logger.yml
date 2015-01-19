@@ -1,0 +1,5 @@
+run:
+  type: docker
+env:
+  - GEARMAN_HOST
+  - GEARMAN_PORT
