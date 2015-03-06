@@ -1,6 +1,6 @@
 # gearman-load-logger
 
-`gearman-load-logger` queries the `gearman` server and outputs that information to logs for further querying.
+`gearman-load-logger` queries the `gearman` server at an interval and outputs that information to logs for further querying.
 
 ## Motivation
 
@@ -9,23 +9,17 @@
 ## Features
 
 The script outputs in [kayvee](https://github.com/Clever/kayvee) format:
-- total jobs queued (`total_jobs`)
-- currently running jobs (`running_jobs`)
-- workers available to process jobs, including those currently running jobs (`available_workers`)
-- current job load on the workers (`worker_load`)
-
-The worker load is calculated as:
-`total_jobs / available_workers`
-
-If there are no workers, a default value of 99 is output as the `worker_load`.
+- total jobs queued (`total`)
+- currently running jobs (`running`)
+- workers available to process jobs, including those currently running jobs (`workers`)
 
 ## Running
 
 ```bash
-./gearman-load-logger --host yourgearmanhost.example.com --port 4730
+./gearman-load-logger --host yourgearmanhost.example.com --port 4730 --interval 1m
 ```
 
-Note that you can usually rely on the default value of 4730 for the gearman port.
+Note that you can usually rely on the default values of 4730 for the gearman port and 1 minute for the interval.
 
 ## Dependencies
 
