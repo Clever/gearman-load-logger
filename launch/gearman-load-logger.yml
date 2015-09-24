@@ -3,3 +3,5 @@ run:
 env:
   - GEARMAN_HOST
   - GEARMAN_PORT
+dependencies:
+- gearmand
