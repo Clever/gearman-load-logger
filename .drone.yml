@@ -19,4 +19,4 @@ publish:
     - $(git rev-parse --short HEAD)
     username: $$docker_username
     when:
-      branch: service
+      branch: master
