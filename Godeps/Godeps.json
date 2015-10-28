@@ -1,6 +1,9 @@
 {
-	"ImportPath": "github.com/Clever/gearman-load-logger",
-	"GoVersion": "go1.3",
+	"ImportPath": "tmp/384358791",
+	"GoVersion": "go1.5.1",
+	"Packages": [
+		""
+	],
 	"Deps": [
 		{
 			"ImportPath": "github.com/Clever/gearadmin",
