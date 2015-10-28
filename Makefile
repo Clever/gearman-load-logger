@@ -3,6 +3,13 @@ PKG := github.com/Clever/gearman-load-logger
 
 .PHONY: test $(PKG)
 
+GOVERSION := $(shell go version | grep 1.5)
+ifeq "$(GOVERSION)" ""
+  $(error must be running Go version 1.5)
+endif
+
+export GO15VENDOREXPERIMENT = 1
+
 test: $(PKG)
 
 $(GOPATH)/bin/golint:
