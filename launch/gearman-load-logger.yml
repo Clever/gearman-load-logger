@@ -1,7 +1,8 @@
 run:
   type: docker
 env:
-  - GEARMAN_HOST
-  - GEARMAN_PORT
+  - SERVICE_GEARMAND_TCP_PROTO
+  - SERVICE_GEARMAND_TCP_HOST
+  - SERVICE_GEARMAND_TCP_PORT
 dependencies:
 - gearmand
