@@ -27,27 +27,6 @@ Note that you can usually rely on the default values of 4730 for the gearman por
 
 However, it is easiest to just download from the [releases page](https://github.com/Clever/gearman-load-logger/releases).
 
-## Changing Dependencies
+## Vendoring
 
-### New Packages
-
-When adding a new package, you can simply use `make vendor` to update your imports.
-This should bring in the new dependency that was previously undeclared.
-The change should be reflected in [Godeps.json](Godeps/Godeps.json) as well as [vendor/](vendor/).
-
-### Existing Packages
-
-First ensure that you have your desired version of the package checked out in your `$GOPATH`.
-
-When to change the version of an existing package, you will need to use the godep tool.
-You must specify the package with the `update` command, if you use multiple subpackages of a repo you will need to specify all of them.
-So if you use package github.com/Clever/foo/a and github.com/Clever/foo/b, you will need to specify both a and b, not just foo.
-
-```
-# depending on github.com/Clever/foo
-godep update github.com/Clever/foo
-
-# depending on github.com/Clever/foo/a and github.com/Clever/foo/b
-godep update github.com/Clever/foo/a github.com/Clever/foo/b
-```
-
+Please view the [dev-handbook for instructions](https://github.com/Clever/dev-handbook/blob/master/golang/godep.md).
