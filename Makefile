@@ -10,6 +10,8 @@ ifeq "$(GOVERSION)" ""
 endif
 export GO15VENDOREXPERIMENT = 1
 
+all: test build
+
 GOLINT := $(GOPATH)/bin/golint
 $(GOLINT):
 	go get github.com/golang/lint/golint
