@@ -26,3 +26,7 @@ Note that you can usually rely on the default values of 4730 for the gearman por
 `gearman-load-logger` uses [gearadmin](https://github.com/Clever/gearadmin) and [kayvee](https://github.com/Clever/kayvee), and requires `golang` to be installed (tested with version `1.3`).
 
 However, it is easiest to just download from the [releases page](https://github.com/Clever/gearman-load-logger/releases).
+
+## Vendoring
+
+Please view the [dev-handbook for instructions](https://github.com/Clever/dev-handbook/blob/master/golang/godep.md).
