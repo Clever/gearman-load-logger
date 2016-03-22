@@ -6,13 +6,18 @@
 	],
 	"Deps": [
 		{
+			"ImportPath": "github.com/Clever/discovery-go",
+			"Comment": "v1.4.0-1-g900bb89",
+			"Rev": "900bb89e81cec862aa789016a1c9f32aca6cc639"
+		},
+		{
 			"ImportPath": "github.com/Clever/gearadmin",
 			"Rev": "24bb3bffb82cc94a5c2df192d483667130d55942"
 		},
 		{
-			"ImportPath": "gopkg.in/Clever/kayvee-go.v1",
-			"Comment": "v1.0.0",
-			"Rev": "40a077507daf3f7d56d15295447a3189b34491fe"
+			"ImportPath": "gopkg.in/Clever/kayvee-go.v3",
+			"Comment": "v3.0.0",
+			"Rev": "d49feee080e8e32e01a5f415cf1f9dc264dfb043"
 		}
 	]
 }
