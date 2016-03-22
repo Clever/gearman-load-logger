@@ -6,10 +6,12 @@ import (
 	"log"
 	"net"
 	"os"
+	"strconv"
 	"time"
 
+	"github.com/Clever/discovery-go"
 	"github.com/Clever/gearadmin"
-	"gopkg.in/Clever/kayvee-go.v1"
+	"gopkg.in/Clever/kayvee-go.v3"
 )
 
 func logMetrics(g gearadmin.GearmanAdmin) {
@@ -37,8 +39,14 @@ func main() {
 	flag.Parse()
 
 	h := *host
-	if os.Getenv("GEARMAN_HOST") != "" {
-		h = os.Getenv("GEARMAN_HOST")
+	if discoveredHost, err := discovery.Host("gearmand", "tcp"); err != nil {
+		h = discoveredHost
+	}
+
+	if discoveredPort, err := discovery.Port("gearmand", "tcp"); err != nil {
+		if portInt, err := strconv.Atoi(discoveredPort); err != nil {
+			port = &portInt
+		}
 	}
 
 	if h == "" {
