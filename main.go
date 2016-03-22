@@ -39,12 +39,12 @@ func main() {
 	flag.Parse()
 
 	h := *host
-	if discoveredHost, err := discovery.Host("gearmand", "tcp"); err != nil {
+	if discoveredHost, err := discovery.Host("gearmand", "tcp"); err == nil {
 		h = discoveredHost
 	}
 
-	if discoveredPort, err := discovery.Port("gearmand", "tcp"); err != nil {
-		if portInt, err := strconv.Atoi(discoveredPort); err != nil {
+	if discoveredPort, err := discovery.Port("gearmand", "tcp"); err == nil {
+		if portInt, err := strconv.Atoi(discoveredPort); err == nil {
 			port = &portInt
 		}
 	}
