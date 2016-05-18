@@ -3,3 +3,7 @@ run:
 env: []
 dependencies:
 - gearmand
+team: eng-districts
+resources:
+  cpu: 0.05
+  max_mem: 0.01
