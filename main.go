@@ -41,7 +41,7 @@ func main() {
 	}
 
 	gHost, err := discovery.Host("gearmand", "tcp")
-	if err == nil {
+	if err != nil {
 		log.Fatalf("failed to get gearmand host: %s", err)
 	}
 

@@ -1,9 +1,7 @@
 routes:
   WorkersTotal:
     matchers:
-      title: "status"
-      env: "production"
-      source: "gearman-load-logger"
+      title: ["total_workers"]
     output:
       type: "alerts"
       series: "WorkersTotal"
@@ -12,9 +10,7 @@ routes:
       dimensions: ["function"]
   WorkersAvailable:
     matchers:
-      title: "status"
-      env: "production"
-      source: "gearman-load-logger"
+      title: ["total_workers"]
     output:
       type: "alerts"
       series: "WorkersAvailable"
