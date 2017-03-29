@@ -8,11 +8,15 @@ import (
 
 	"github.com/Clever/discovery-go"
 	"github.com/Clever/gearadmin"
-	"gopkg.in/Clever/kayvee-go.v6"
+	"gopkg.in/Clever/kayvee-go.v6/logger"
 )
 
 const (
 	pollInterval = time.Minute
+)
+
+var (
+	lg = logger.New("gear-load-logger")
 )
 
 func logMetrics(g gearadmin.GearmanAdmin) {
@@ -21,19 +25,21 @@ func logMetrics(g gearadmin.GearmanAdmin) {
 		log.Fatalf("error retrieving gearman status: %s", err)
 	}
 	for _, status := range statuses {
-		fmt.Println(kayvee.FormatLog("gearlogger", "info", "status", map[string]interface{}{
-			"type":     "gauge",
-			"function": status.Function,
-			"running":  status.Running,
-			"total":    status.Total,
-			"workers":  status.AvailableWorkers,
-		}))
+		lg.GaugeIntD("total_workers", status.Total, logger.M{
+			"function":          status.Function,
+			"running_workers":   status.Running,
+			"available_workers": status.AvailableWorkers,
+		})
 	}
 }
 
 // This script polls gearman and outputs metrics to syslog in
 // a standard format for later parsing
 func main() {
+	if err := logger.SetGlobalRouting("./kvconfig.yml"); err != nil {
+		log.Fatalf("failed to find kayvee config: %s", err)
+	}
+
 	gHost, err := discovery.Host("gearmand", "tcp")
 	if err == nil {
 		log.Fatalf("failed to get gearmand host: %s", err)
