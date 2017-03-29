@@ -3,7 +3,7 @@ routes:
     matchers:
       title: "status"
       env: "production"
-      source: "gear-load-logger"
+      source: "gearman-load-logger"
     output:
       type: "alerts"
       series: "WorkersTotal"
@@ -14,7 +14,7 @@ routes:
     matchers:
       title: "status"
       env: "production"
-      source: "gear-load-logger"
+      source: "gearman-load-logger"
     output:
       type: "alerts"
       series: "WorkersAvailable"

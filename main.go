@@ -16,7 +16,7 @@ const (
 )
 
 var (
-	lg = logger.New("gear-load-logger")
+	lg = logger.New("gearman-load-logger")
 )
 
 func logMetrics(g gearadmin.GearmanAdmin) {
