@@ -1,17 +1,22 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"log"
 	"net"
-	"os"
-	"strconv"
 	"time"
 
 	"github.com/Clever/discovery-go"
 	"github.com/Clever/gearadmin"
-	"gopkg.in/Clever/kayvee-go.v3"
+	"gopkg.in/Clever/kayvee-go.v6/logger"
+)
+
+const (
+	pollInterval = time.Minute
+)
+
+var (
+	lg = logger.New("gearman-load-logger")
 )
 
 func logMetrics(g gearadmin.GearmanAdmin) {
@@ -20,43 +25,33 @@ func logMetrics(g gearadmin.GearmanAdmin) {
 		log.Fatalf("error retrieving gearman status: %s", err)
 	}
 	for _, status := range statuses {
-		fmt.Println(kayvee.FormatLog("gearlogger", "info", "status", map[string]interface{}{
-			"type":     "gauge",
-			"function": status.Function,
-			"running":  status.Running,
-			"total":    status.Total,
-			"workers":  status.AvailableWorkers,
-		}))
+		lg.GaugeIntD("total_workers", status.Total, logger.M{
+			"function":          status.Function,
+			"running_workers":   status.Running,
+			"available_workers": status.AvailableWorkers,
+		})
 	}
 }
 
 // This script polls gearman and outputs metrics to syslog in
 // a standard format for later parsing
 func main() {
-	host := flag.String("host", "", "target gearman host")
-	port := flag.Int("port", 4730, "target gearman port")
-	interval := flag.Duration("interval", time.Minute, "interval to log at")
-	flag.Parse()
-
-	h := *host
-	if discoveredHost, err := discovery.Host("gearmand", "tcp"); err == nil {
-		h = discoveredHost
+	if err := logger.SetGlobalRouting("./kvconfig.yml"); err != nil {
+		log.Fatalf("failed to find kayvee config: %s", err)
 	}
 
-	if discoveredPort, err := discovery.Port("gearmand", "tcp"); err == nil {
-		if portInt, err := strconv.Atoi(discoveredPort); err == nil {
-			port = &portInt
-		}
+	gHost, err := discovery.Host("gearmand", "tcp")
+	if err != nil {
+		log.Fatalf("failed to get gearmand host: %s", err)
 	}
 
-	if h == "" {
-		log.Println("must specify host")
-		flag.PrintDefaults()
-		os.Exit(1)
+	gPort, err := discovery.Port("gearmand", "tcp")
+	if err != nil {
+		log.Fatalf("failed to get gearmand port: %s", err)
 	}
 
 	// connect to gearman
-	c, err := net.Dial("tcp", fmt.Sprintf("%s:%d", h, *port))
+	c, err := net.Dial("tcp", fmt.Sprintf("%s:%s", gHost, gPort))
 	if err != nil {
 		panic(err)
 	}
@@ -64,7 +59,7 @@ func main() {
 	admin := gearadmin.NewGearmanAdmin(c)
 
 	logMetrics(admin)
-	for _ = range time.Tick(*interval) {
+	for range time.Tick(pollInterval) {
 		logMetrics(admin)
 	}
 }

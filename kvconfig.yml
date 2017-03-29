@@ -1,0 +1,19 @@
+routes:
+  WorkersTotal:
+    matchers:
+      title: ["total_workers"]
+    output:
+      type: "alerts"
+      series: "WorkersTotal"
+      stat_type: "gauge"
+      value_field: "value"
+      dimensions: ["function"]
+  WorkersAvailable:
+    matchers:
+      title: ["total_workers"]
+    output:
+      type: "alerts"
+      series: "WorkersAvailable"
+      stat_type: "gauge"
+      value_field: "available_workers"
+      dimensions: ["function"]

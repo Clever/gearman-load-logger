@@ -1,6 +1,7 @@
 {
 	"ImportPath": "github.com/Clever/gearman-load-logger",
 	"GoVersion": "go1.5.1",
+	"GodepVersion": "v75",
 	"Packages": [
 		"github.com/Clever/gearman-load-logger"
 	],
@@ -15,9 +16,45 @@
 			"Rev": "24bb3bffb82cc94a5c2df192d483667130d55942"
 		},
 		{
+			"ImportPath": "github.com/xeipuuv/gojsonpointer",
+			"Rev": "e0fe6f68307607d540ed8eac07a342c33fa1b54a"
+		},
+		{
+			"ImportPath": "github.com/xeipuuv/gojsonreference",
+			"Rev": "e02fc20de94c78484cd5ffb007f8af96be030a45"
+		},
+		{
+			"ImportPath": "github.com/xeipuuv/gojsonschema",
+			"Rev": "f06f290571ce81ab347174c6f7ad2e1865af41a7"
+		},
+		{
 			"ImportPath": "gopkg.in/Clever/kayvee-go.v3",
-			"Comment": "v3.0.0",
-			"Rev": "d49feee080e8e32e01a5f415cf1f9dc264dfb043"
+			"Comment": "v3.2.1",
+			"Rev": "056c92dcc68b40c5d6045f755197b3776f914154"
+		},
+		{
+			"ImportPath": "gopkg.in/Clever/kayvee-go.v3/logger",
+			"Comment": "v3.2.1",
+			"Rev": "056c92dcc68b40c5d6045f755197b3776f914154"
+		},
+		{
+			"ImportPath": "gopkg.in/Clever/kayvee-go.v6",
+			"Comment": "v6.5.1",
+			"Rev": "683d4049f6d9ca0e6587425789cec039031a939a"
+		},
+		{
+			"ImportPath": "gopkg.in/Clever/kayvee-go.v6/logger",
+			"Comment": "v6.5.1",
+			"Rev": "683d4049f6d9ca0e6587425789cec039031a939a"
+		},
+		{
+			"ImportPath": "gopkg.in/Clever/kayvee-go.v6/router",
+			"Comment": "v6.5.1",
+			"Rev": "683d4049f6d9ca0e6587425789cec039031a939a"
+		},
+		{
+			"ImportPath": "gopkg.in/yaml.v2",
+			"Rev": "a5b47d31c556af34a302ce5d659e6fea44d90de0"
 		}
 	]
 }
