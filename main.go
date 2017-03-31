@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net"
-	"os"
 	"time"
 
 	"github.com/Clever/discovery-go"
@@ -17,8 +16,7 @@ const (
 )
 
 var (
-	lg        = logger.New("gearman-load-logger")
-	deployEnv = os.Getenv("_DEPLOY_ENV")
+	lg = logger.New("gearman-load-logger")
 )
 
 func logMetrics(g gearadmin.GearmanAdmin) {
@@ -31,7 +29,6 @@ func logMetrics(g gearadmin.GearmanAdmin) {
 			"function":          status.Function,
 			"running_workers":   status.Running,
 			"available_workers": status.AvailableWorkers,
-			"env":               deployEnv,
 		})
 	}
 }
