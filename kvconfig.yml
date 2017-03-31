@@ -2,7 +2,7 @@ routes:
   WorkersTotal:
     matchers:
       title: ["total_workers"]
-      env: ["production"]
+      deploy_env: ["production"]
     output:
       type: "alerts"
       series: "WorkersTotal"
@@ -12,7 +12,7 @@ routes:
   WorkersAvailable:
     matchers:
       title: ["total_workers"]
-      env: ["production"]
+      deploy_env: ["production"]
     output:
       type: "alerts"
       series: "WorkersAvailable"
