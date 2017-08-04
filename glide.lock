@@ -1,10 +1,41 @@
-hash: 3c2792ec38e63c2d1aa4af3ba8fb0ac1a88be96e98d0d35f5e1af9bccee31941
-updated: 2017-08-04T11:12:34.509279858-07:00
+hash: a7b2ec8055338efa9d22c04be596e0917dd9173badd9e319c97d0ff9be416ad7
+updated: 2017-08-04T12:50:59.998201406-07:00
 imports:
+- name: github.com/aws/aws-sdk-go
+  version: b33b08175d12b795daa7726c5577b39d06a2551c
+  subpackages:
+  - aws
+  - aws/awserr
+  - aws/awsutil
+  - aws/client
+  - aws/client/metadata
+  - aws/corehandlers
+  - aws/credentials
+  - aws/credentials/ec2rolecreds
+  - aws/credentials/endpointcreds
+  - aws/credentials/stscreds
+  - aws/defaults
+  - aws/ec2metadata
+  - aws/endpoints
+  - aws/request
+  - aws/session
+  - aws/signer/v4
+  - internal/shareddefaults
+  - private/protocol
+  - private/protocol/query
+  - private/protocol/query/queryutil
+  - private/protocol/rest
+  - private/protocol/xml/xmlutil
+  - service/cloudwatch
+  - service/sts
 - name: github.com/Clever/discovery-go
   version: 900bb89e81cec862aa789016a1c9f32aca6cc639
 - name: github.com/Clever/gearadmin
   version: 24bb3bffb82cc94a5c2df192d483667130d55942
+- name: github.com/go-ini/ini
+  version: 3d73f4b845efdf9989fffd4b4e562727744a34ba
+- name: github.com/jmespath/go-jmespath
+  version: bd40a432e4c76585ef6b72d3fd96fb9b6dc7b68d
 - name: github.com/xeipuuv/gojsonpointer
   version: e0fe6f68307607d540ed8eac07a342c33fa1b54a
 - name: github.com/xeipuuv/gojsonreference
