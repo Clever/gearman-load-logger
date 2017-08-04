@@ -1,0 +1,25 @@
+hash: 3c2792ec38e63c2d1aa4af3ba8fb0ac1a88be96e98d0d35f5e1af9bccee31941
+updated: 2017-08-04T11:12:34.509279858-07:00
+imports:
+- name: github.com/Clever/discovery-go
+  version: 900bb89e81cec862aa789016a1c9f32aca6cc639
+- name: github.com/Clever/gearadmin
+  version: 24bb3bffb82cc94a5c2df192d483667130d55942
+- name: github.com/xeipuuv/gojsonpointer
+  version: e0fe6f68307607d540ed8eac07a342c33fa1b54a
+- name: github.com/xeipuuv/gojsonreference
+  version: e02fc20de94c78484cd5ffb007f8af96be030a45
+- name: github.com/xeipuuv/gojsonschema
+  version: f06f290571ce81ab347174c6f7ad2e1865af41a7
+- name: gopkg.in/Clever/kayvee-go.v3
+  version: 056c92dcc68b40c5d6045f755197b3776f914154
+  subpackages:
+  - logger
+- name: gopkg.in/Clever/kayvee-go.v6
+  version: 683d4049f6d9ca0e6587425789cec039031a939a
+  subpackages:
+  - logger
+  - router
+- name: gopkg.in/yaml.v2
+  version: a5b47d31c556af34a302ce5d659e6fea44d90de0
+testImports: []
