@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"math"
 	"net"
 	"os"
 	"time"
@@ -39,11 +38,11 @@ func logMetrics(g gearadmin.GearmanAdmin, cw *cloudwatch.CloudWatch) {
 		})
 
 		// Write data to CloudWatch
-		jobToWorkerRatio := float64(status.Total) / float64(status.AvailableWorkers)
-		if math.IsInf(jobToWorkerRatio, 1) || math.IsNaN(jobToWorkerRatio) {
-			// handle divide-by-zero cases (x/0 or 0/0)
+		if status.AvailableWorkers == 0 {
+			// avoid divide to 0 errors
 			continue
 		}
+		jobToWorkerRatio := float64(status.Total) / float64(status.AvailableWorkers)
 
 		_, err := cw.PutMetricData(&cloudwatch.PutMetricDataInput{
 			MetricData: []*cloudwatch.MetricDatum{
