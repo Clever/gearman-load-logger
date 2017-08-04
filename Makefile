@@ -11,8 +11,8 @@ $(eval $(call golang-version-check,1.8))
 
 all: test build
 
-run:
-	go run main.go
+run: build
+	bin/$(EXECUTABLE)
 
 build:
 	go build -o bin/$(EXECUTABLE) $(PKG)
@@ -22,5 +22,8 @@ test: $(PKGS)
 $(PKGS): golang-test-all-strict-deps
 	$(call golang-test-all-strict,$@)
 
-vendor: golang-godep-vendor-deps
-	$(call golang-godep-vendor,$(PKGS))
+$(GOPATH)/bin/glide:
+	@go get github.com/Masterminds/glide
+
+install_deps: $(GOPATH)/bin/glide
+	@$(GOPATH)/bin/glide install
