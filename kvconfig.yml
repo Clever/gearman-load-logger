@@ -19,3 +19,13 @@ routes:
       stat_type: "gauge"
       value_field: "available_workers"
       dimensions: ["function"]
+  WorkersRunning:
+    matchers:
+      title: ["total_workers"]
+      deploy_env: ["production"]
+    output:
+      type: "alerts"
+      series: "WorkersRunning"
+      stat_type: "gauge"
+      value_field: "running_workers"
+      dimensions: ["function"]
