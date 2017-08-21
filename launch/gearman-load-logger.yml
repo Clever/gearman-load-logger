@@ -7,4 +7,5 @@ team: eng-districts
 use_iam_roles: true
 resources:
   cpu: 0.0  # no CPU to improve resource usage (https://clever.atlassian.net/browse/INFRA-2120)
+  soft_mem_limit: 0.01
   max_mem: 0.02
