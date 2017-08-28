@@ -39,10 +39,12 @@ func logMetrics(g gearadmin.GearmanAdmin, cw *cloudwatch.CloudWatch) {
 
 		// Write data to CloudWatch
 		jobToWorkerRatio := float64(0)
-		if status.AvailableWorkers == 0 && status.Total > 0 {
+		if status.AvailableWorkers == 0 {
 			// avoid divide-by-0 errors.
-			// instead, use a default value which is >> target metric and will ensure that apps scale up
-			jobToWorkerRatio = float64(1000)
+			if status.Total > 0 {
+				// Since we can't write infinity to CloudWatch, use a large value >> target metric to ensure apps scale up
+				jobToWorkerRatio = float64(1000)
+			}
 		} else {
 			jobToWorkerRatio = float64(status.Total) / float64(status.AvailableWorkers)
 		}
