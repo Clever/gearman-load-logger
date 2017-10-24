@@ -3,7 +3,7 @@ run:
 env: []
 dependencies:
 - gearmand
-team: eng-districts
+team: eng-secure-sync
 use_iam_roles: true
 resources:
   cpu: 0.0  # no CPU to improve resource usage (https://clever.atlassian.net/browse/INFRA-2120)
