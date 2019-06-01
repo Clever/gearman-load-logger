@@ -7,7 +7,7 @@ PKGS := $(shell go list ./... | grep -v /vendor)
 EXECUTABLE := gearman-load-logger
 .PHONY: all build test $(PKGS) vendor
 
-$(eval $(call golang-version-check,1.10))
+$(eval $(call golang-version-check,1.12))
 
 all: test build
 
